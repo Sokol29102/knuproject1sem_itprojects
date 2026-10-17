@@ -13,3 +13,14 @@ Functional requirements:
 | FR-10 | User can request a clearer rewrite of a requirement             |
 | FR-11 | System remembers conversation context                           |
 | FR-12 | System remembers important decisions made during the discussion |
+
+Enablers:
+FastAPI skeleton
+Gemini API integration
+Prompt/service layer
+Structured AI response parsing
+SQLite persistence
+Document text extraction
+Conversation storage
+Context/memory builder
+Error handling
