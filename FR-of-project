@@ -1,0 +1,15 @@
+Functional requirements:
+| ID    | Functional requirement                                          |
+| ----- | --------------------------------------------------------------- |
+| FR-01 | User can create an analysis project                             |
+| FR-02 | User can provide requirements text                              |
+| FR-03 | User can upload a supported requirements document               |
+| FR-04 | System can identify functional requirements                     |
+| FR-05 | System can identify non-functional requirements                 |
+| FR-06 | System can identify ambiguous or unclear requirements           |
+| FR-07 | System can identify risks and constraints                       |
+| FR-08 | User can view analysis results in structured form               |
+| FR-09 | User can ask questions about the analyzed requirements          |
+| FR-10 | User can request a clearer rewrite of a requirement             |
+| FR-11 | System remembers conversation context                           |
+| FR-12 | System remembers important decisions made during the discussion |
