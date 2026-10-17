@@ -4,6 +4,18 @@ AI Requirements Analyzer is a web application that helps analyze software projec
 
 The system allows users to upload a requirements document, automatically extract important information, and discuss the document through a conversational interface.
 
+Problem:
+
+Software requirements are often vague, incomplete, contradictory, or difficult to review manually.
+
+Primary audience:
+
+Business analysts, project managers, and software development teams who need to review early-stage software requirements.
+
+Goal:
+
+Help a user perform a first-pass analysis of a software requirements document and discuss detected problems with an AI assistant.
+
 ## Main Features
 
 - Upload software requirements documents
