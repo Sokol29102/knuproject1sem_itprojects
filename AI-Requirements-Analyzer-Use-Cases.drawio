@@ -1,0 +1,240 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="full-use-cases" name="Full product use cases">
+    <mxGraphModel dx="2167" dy="1009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1940" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=0;fontSize=30;align=left;fontStyle=1;" value="AI Requirements Analyzer — full use-case diagram" vertex="1">
+          <mxGeometry height="50" width="1450" x="65" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;html=0;fontSize=18;align=left;" value="Blue: Sprint 1    |    Green: Sprint 2    |    Gray: future scope&#xa;Delivery scope is planned, not implementation status." vertex="1">
+          <mxGeometry height="55" width="1450" x="65" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="boundary" parent="1" style="rounded=0;whiteSpace=wrap;html=0;fillColor=none;strokeColor=#26374D;strokeWidth=2;verticalAlign=top;align=left;spacingTop=12;spacingLeft=20;fontStyle=1;fontSize=20;" value="AI Requirements Analyzer" vertex="1">
+          <mxGeometry height="1630" width="1125" x="245" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="paste" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF3FF;strokeColor=#3975B8;fontColor=#25354A;fontSize=17;" value="Enter / edit text" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="upload" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF3FF;strokeColor=#3975B8;fontColor=#25354A;fontSize=17;" value="Import requirements&#xa;TXT now; PDF / DOCX later" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="308" as="geometry" />
+        </mxCell>
+        <mxCell id="preview" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF3FF;strokeColor=#3975B8;fontColor=#25354A;fontSize=17;" value="Preview accepted text" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="408" as="geometry" />
+        </mxCell>
+        <mxCell id="validate" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF3FF;strokeColor=#3975B8;fontColor=#25354A;fontSize=17;" value="Validate input" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="258" as="geometry" />
+        </mxCell>
+        <mxCell id="analyze" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF7F0;strokeColor=#34805A;fontColor=#25354A;fontSize=17;" value="Analyze requirements" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="643" as="geometry" />
+        </mxCell>
+        <mxCell id="classify" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF7F0;strokeColor=#34805A;fontColor=#25354A;fontSize=17;" value="Identify candidate&#xa;functional / non-functional items" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="563" as="geometry" />
+        </mxCell>
+        <mxCell id="ambiguity" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF7F0;strokeColor=#34805A;fontColor=#25354A;fontSize=17;" value="Check for ambiguity" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="673" as="geometry" />
+        </mxCell>
+        <mxCell id="risks" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value=" Review risks&#xa;and constraints" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="783" as="geometry" />
+        </mxCell>
+        <mxCell id="review" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF7F0;strokeColor=#34805A;fontColor=#25354A;fontSize=17;" value="Review findings" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="983" as="geometry" />
+        </mxCell>
+        <mxCell id="inspect" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#EAF7F0;strokeColor=#34805A;fontColor=#25354A;fontSize=17;" value="Inspect source excerpts,&#xa;explanations and questions" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="943" as="geometry" />
+        </mxCell>
+        <mxCell id="rewrite" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value="Request clearer wording" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="1113" as="geometry" />
+        </mxCell>
+        <mxCell id="chat" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value="Discuss the document" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="1283" as="geometry" />
+        </mxCell>
+        <mxCell id="save" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value="Save project, analysis&#xa;and conversation" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="1243" as="geometry" />
+        </mxCell>
+        <mxCell id="context" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value="Use saved requirements&#xa;and project decisions" vertex="1">
+          <mxGeometry height="74" width="320" x="880" y="1393" as="geometry" />
+        </mxCell>
+        <mxCell id="open" parent="1" style="ellipse;whiteSpace=wrap;html=0;fillColor=#F2F2F5;strokeColor=#777A88;fontColor=#25354A;fontSize=17;" value="Open saved project&#xa;and conversation history" vertex="1">
+          <mxGeometry height="74" width="320" x="340" y="1543" as="geometry" />
+        </mxCell>
+        <mxCell id="reviewer" parent="1" style="shape=umlActor;html=0;verticalLabelPosition=bottom;verticalAlign=top;fontSize=17;" value="Reviewer&#xa;Student / analyst&#xa;Developer / supervisor" vertex="1">
+          <mxGeometry height="125" width="60" x="85" y="839" as="geometry" />
+        </mxCell>
+        <mxCell id="ai" parent="1" style="shape=umlActor;html=0;verticalLabelPosition=bottom;verticalAlign=top;fontSize=17;" value="AI API" vertex="1">
+          <mxGeometry height="125" width="60" x="1460" y="649" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="paste" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="upload" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="345" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="preview" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="445" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="analyze" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="680" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="review" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="1020" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="chat" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="1320" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="reviewer" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="open" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="900" />
+              <mxPoint x="205" y="1580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="paste" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="validate" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="upload" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="validate" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="analyze" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="validate" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="545" />
+              <mxPoint x="810" y="545" />
+              <mxPoint x="810" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="analyze" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="classify" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="analyze" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="ambiguity" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="risks" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="analyze" value="«extend»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="805" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="review" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="inspect" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="rewrite" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="review" value="«extend»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="1150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="chat" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="save" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="chat" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="context" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="open" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=open;dashed=1;" target="context" value="«include»">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="1515" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e18" edge="1" parent="1" source="ai" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="classify" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="710" />
+              <mxPoint x="1410" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e19" edge="1" parent="1" source="ai" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="ambiguity" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="710" />
+              <mxPoint x="1410" y="710" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e20" edge="1" parent="1" source="ai" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="risks" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="710" />
+              <mxPoint x="1410" y="820" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e21" edge="1" parent="1" source="ai" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="rewrite" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="710" />
+              <mxPoint x="1410" y="1150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e22" edge="1" parent="1" source="ai" style="html=0;rounded=0;strokeColor=#596477;fontSize=15;labelBackgroundColor=#FFFFFF;endArrow=none;" target="chat" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="710" />
+              <mxPoint x="1410" y="1340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="risk-condition" parent="1" style="text;html=0;fontSize=14;fontColor=#647086;" value="Extension: broader review is requested." vertex="1">
+          <mxGeometry height="35" width="350" x="865" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="rewrite-condition" parent="1" style="text;html=0;fontSize=14;fontColor=#647086;" value="Extension: reviewer requests a reformulation." vertex="1">
+          <mxGeometry height="35" width="390" x="845" y="1182" as="geometry" />
+        </mxCell>
+        <mxCell id="notes" parent="1" style="text;html=0;fontSize=18;align=left;whiteSpace=wrap;" value="Solid association = actor participation. «include» = required reused behavior. «extend» = optional addition.&#xa;Errors, loading and retries are alternate flows. Human review remains mandatory. No accounts or collaboration are implied." vertex="1">
+          <mxGeometry height="100" width="1470" x="65" y="1820" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
