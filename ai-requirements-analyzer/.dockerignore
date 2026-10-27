@@ -1,0 +1,15 @@
+.venv
+__pycache__
+*.pyc
+.git
+.env
+tests
+docs
+*.png
+*.zip
+README.md
+requirements.in
+requirements-dev.txt
+start-windows.cmd
+stop-windows.cmd
+examples

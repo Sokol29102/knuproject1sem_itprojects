@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Requirements Analyzer — Product demo</title>
+  <link rel="stylesheet" href="/static/demo.css"><link rel="stylesheet" href="/static/board.css"><link rel="stylesheet" href="/static/projects.css"><script src="/static/demo.js" defer></script><script src="/static/projects.js" defer></script><script type="module" src="/static/board.js"></script>
+</head>
+<body class="project-chooser">
+  <aside class="sidebar">
+    <a class="logo" href="/demo"><span class="logo-mark" aria-hidden="true">↗</span><span class="sidebar-copy">AI Requirements<small>Analyzer</small></span></a>
+    <p class="nav-label sidebar-copy">WORKSPACE</p>
+    <nav aria-label="Project navigation"><button class="nav-item" data-view="history" aria-label="Review history"><span aria-hidden="true">◷</span><span class="sidebar-copy">Review history</span></button></nav>
+    <button id="open-discussion" class="nav-item dialogue-launcher" aria-label="Open dialogue" aria-controls="discussion" aria-expanded="false"><span aria-hidden="true">✦</span><span class="sidebar-copy">Open dialogue</span></button>
+    <div class="sidebar-project sidebar-copy"><p class="nav-label">CURRENT PROJECT</p><div><span class="project-dot"></span>AI Requirements Analyzer</div><small>Our product · university project</small></div>
+    <div class="sidebar-bottom"><div class="concept-card sidebar-copy"><span>FROM DOCUMENT TO DIALOGUE</span><p>Understand the requirement.<br>Ask the right next question.</p></div><a href="/" class="real-link" aria-label="Open working input prototype"><span aria-hidden="true">↗</span><span class="sidebar-copy">Working input prototype</span></a><div class="profile"><span class="avatar">AR</span><span class="sidebar-copy">Alex · Reviewer<small>Sample persona</small></span></div></div>
+  </aside>
+  <div class="main-shell">
+    <header class="demo-topbar"><div>Workspace <span>/</span> <strong>AI Requirements Analyzer</strong></div><span class="concept-pill"><span></span>Interactive concept</span></header>
+    <div class="demo-disclosure"><span aria-hidden="true">✦</span><p><strong>Simulated product experience.</strong> Example discussion, model proposals and history. No live analysis. No AI requests. Board cards save in this browser. Dialogue is session-only.</p></div>
+    <main>
+      <section class="page-intro"><div><p class="eyebrow">LESS GUESSWORK. BETTER REQUIREMENTS.</p><h1 id="page-title">Your project board.</h1><p id="page-subtitle">Keep requirements, questions and decisions together.</p></div><div class="page-actions"><button id="reset-demo" class="button secondary">Reset demo</button></div></section>
+      <section id="history-view" class="view" aria-label="Review history" hidden><section class="card history-card"><div class="card-header"><div><span class="section-kicker">PICK UP WHERE YOU LEFT OFF</span><h2>The story behind the review.</h2></div><span class="sample-tag">Illustrative history</span></div><div class="history-description">Illustrative history only. Saved review versions are not implemented; your current board saves in this browser.</div><div class="history-row"><span class="history-file">▤</span><div><strong>AI Requirements Analyzer · Initial review</strong><p>analyzer-requirements.txt · 6 findings · 3 clarification questions</p><small>Sample record · not generated from board activity</small></div><button class="button secondary" data-view="board">Open project board →</button></div><div class="history-empty"><span>◷</span><h3>Each review adds to the project story.</h3><p>Future saved versions will help a team see what changed,<br>what was clarified, and why a decision was made.</p></div></section></section>
+      <p class="prototype-caption">Product vision prototype <span>·</span> A university project simulation <span>·</span> Designed for stakeholder walkthroughs</p>
+    </main>
+  </div>
+  <aside id="discussion" class="discussion" aria-labelledby="discussion-title" hidden><div class="discussion-header"><div><span class="section-kicker">03 / CLARIFY</span><h2 id="discussion-title">A conversation with context.</h2></div><button id="close-discussion" class="icon-button" aria-label="Close discussion">×</button></div><div class="discussion-label">Scripted sample conversation · no live AI</div><div id="messages" class="messages" aria-live="polite"><div class="assistant-message"><span class="assistant-avatar">✦</span><div><small>REQUIREMENTS ASSISTANT · SAMPLE</small><p>“Quickly” leaves the response-time target open. Before rewriting it, ask the stakeholder which operation, time limit and expected load they mean.</p><span class="source-chip">Source: statement 2</span></div></div></div><div class="conversation-actions"><p>Try a sample question</p><button class="question-chip" data-question="why">Why is this ambiguous?</button><button class="question-chip" data-question="rewrite">What could a clearer version look like?</button><button class="question-chip" data-question="record">Add sample question to board</button></div><div class="conversation-footnote">Human agreement comes before an approved requirement.</div></aside>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

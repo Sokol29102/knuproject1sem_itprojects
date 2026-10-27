@@ -119,7 +119,6 @@ The application shall validate the analysis response structure and ensure that e
 - A candidate requirement entry requires a category and source excerpt. An ambiguity finding additionally requires a non-empty explanation and clarification question.
 
 Exact-excerpt checks establish traceability; they do not prove that a classification or explanation is correct. Response rejection is the baseline choice for the existing Jira task's allowed “reject or flag” handling, avoiding extra partial-result behavior.
-
 ### FR-11 — Report analysis failures and allow retry
 
 The application shall show a readable failure message when analysis cannot complete because configuration is missing, the AI service fails, the request times out, or the response fails validation. The reviewer shall be able to retry with the current input.
@@ -162,6 +161,7 @@ The application shall identify analysis output as AI-generated suggestions requi
 - The interface does not label generated classifications, questions, or numerical targets as stakeholder-approved requirements.
 
 Recorded-output support is not a required additional feature. This rule applies if such a fallback is included.
+
 
 ## Technical enablers and traceability
 

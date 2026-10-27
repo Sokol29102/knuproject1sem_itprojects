@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepare and preview your software requirements. Sprint 1 prototype.">
+  <title>AI Requirements Analyzer — Input workspace</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2327364b'/%3E%3Ctext x='20' y='27' text-anchor='middle' font-size='24' fill='white'%3E↗%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="AI Requirements Analyzer home"><span class="brand-mark" aria-hidden="true">↗</span><span>AI Requirements<span class="brand-light">Analyzer</span></span></a><a href="/demo" style="color:#526649;font-size:13px;font-weight:600">Explore the product demo ↗</a><span class="version"><span class="status-dot"></span>Sprint 1 prototype</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">REQUIREMENTS WORKSPACE / 01</p><h1>A clearer starting point.</h1><p class="lede">Bring your requirements into one place.<br>Check the text before the analysis begins.</p></div><aside class="scope-note"><span class="tiny-label">THIS INCREMENT</span><strong>Input → validation → preview</strong><p>AI analysis arrives in Sprint 2.<br>No API key needed here.</p></aside></section>
+    <div class="workspace">
+      <section class="panel input-panel" aria-labelledby="input-title"><div class="panel-heading"><div><span class="step">01</span><h2 id="input-title">Your requirements</h2></div><button id="sample" class="text-button" type="button">Try a sample <span aria-hidden="true">↗</span></button></div>
+        <form id="requirements-form" novalidate>
+          <fieldset class="source-switch"><legend class="sr-only">Input source</legend><label><input type="radio" name="source" value="text" checked><span>Paste text</span></label><label><input type="radio" name="source" value="file"><span>Upload TXT</span></label></fieldset>
+          <div id="text-input"><label for="requirements" class="field-label">Requirements text</label><textarea id="requirements" name="requirements" placeholder="Start with what the software should do…&#10;&#10;For example: A student shall be able to search books by title or author." spellcheck="false" aria-describedby="input-help counter"></textarea><div class="input-meta"><span id="input-help">English text · preserve your original wording</span><span id="counter">0 / 20,000</span></div></div>
+          <div id="file-input" hidden><div class="file-zone"><span class="file-symbol" aria-hidden="true">↥</span><label for="document" class="field-label">Choose your requirements file</label><p>A single .txt file saved as UTF-8</p><input type="file" id="document" name="document" accept=".txt,text/plain" aria-describedby="file-help"><p id="file-help">Up to 20,000 characters after decoding.<br>Selecting a file replaces the text source for this submission.</p></div></div>
+          <div id="error" class="error" role="alert" tabindex="-1" hidden></div>
+          <div class="form-actions"><button id="submit" class="primary" type="submit">Validate &amp; preview <span aria-hidden="true">→</span></button><button id="clear" type="button" class="text-button">Clear</button></div>
+          <p class="privacy"><span aria-hidden="true">◇</span> Processed locally by this app. Nothing is sent to an AI service.</p>
+        </form>
+      </section>
+      <section class="panel preview-panel" aria-labelledby="preview-title" aria-busy="false"><div class="panel-heading"><div><span class="step">02</span><h2 id="preview-title">Accepted preview</h2></div><span id="preview-badge" class="badge">Awaiting input</span></div>
+        <div id="empty-state" class="empty-state"><div class="document-illustration" aria-hidden="true"><span></span><span></span><span></span><span></span><b>✓</b></div><h3>Your text, ready for review.</h3><p>Submit a sample to see exactly what<br>the application has accepted.</p><span class="empty-hint">No analysis or rewriting in this step</span></div>
+        <div id="preview-result" hidden><dl class="preview-stats"><div><dt>Characters</dt><dd id="accepted-count">—</dd></div><div><dt>Lines</dt><dd id="accepted-lines">—</dd></div><div class="source-stat"><dt>Source</dt><dd id="accepted-source">—</dd></div></dl><pre id="preview-text" tabindex="0" aria-label="Accepted requirements text"></pre><p class="accepted-note"><span aria-hidden="true">✓</span> Validated on the server. Wording preserved.</p></div>
+        <p id="status" class="sr-only" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="next-step"><span class="next-icon" aria-hidden="true">✦</span><div><h2>Next: from text to insight.</h2><p>Sprint 2 will add candidate requirements, ambiguity findings, and questions linked to your source text.</p></div><span class="roadmap-badge">PLANNED</span></section>
+  </main>
+  <footer><span>AI Requirements Analyzer <span class="footer-divider">/</span> University project</span><span>Built for a small, working increment.</span></footer>
+</body>
+</html>

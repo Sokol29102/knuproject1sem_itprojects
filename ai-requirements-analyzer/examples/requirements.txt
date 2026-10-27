@@ -1,0 +1,12 @@
+Library project — initial requirements
+
+1. A student shall be able to search books by title or author.
+2. The system should respond quickly.
+3. A librarian shall be able to add and update book records.
+4. Borrowing records shall be visible only to the relevant student and librarian.
+
+Discussion points for a later AI review:
+- What response time is acceptable for book searches?
+- Can students reserve a book that is already on loan?
+
+This Sprint 1 prototype validates and previews the text. It does not analyze it yet.

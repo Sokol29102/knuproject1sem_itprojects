@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1940" viewBox="0 0 1600 1940">
+<rect width="100%" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M 1 1 L 10 6 L 1 11" fill="none" stroke="#596477" stroke-width="1.7"/></marker></defs>
+<text x="65" y="58" font-family="Segoe UI,Arial,sans-serif" font-size="34" fill="#25354A" font-weight="700" text-anchor="start">AI Requirements Analyzer</text>
+<text x="65" y="91" font-family="Segoe UI,Arial,sans-serif" font-size="20" fill="#647086" font-weight="400" text-anchor="start">Use-case diagram · full product vision with delivery scope</text>
+<rect x="65" y="112" width="24" height="20" rx="4" fill="#EAF3FF" stroke="#3975B8" stroke-width="1"/>
+<text x="100" y="129" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="start">Sprint 1</text>
+<rect x="265" y="112" width="24" height="20" rx="4" fill="#EAF7F0" stroke="#34805A" stroke-width="1"/>
+<text x="300" y="129" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="start">Sprint 2</text>
+<rect x="465" y="112" width="24" height="20" rx="4" fill="#F2F2F5" stroke="#777A88" stroke-width="1"/>
+<text x="500" y="129" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="start">Future scope</text>
+<text x="900" y="129" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#647086" font-weight="400" text-anchor="start">Colors show planned delivery, not completion.</text>
+<rect x="245" y="165" width="1125" height="1630" rx="0" fill="#FFFFFF" stroke="#26374D" stroke-width="2"/>
+<text x="270" y="198" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#25354A" font-weight="700" text-anchor="start">AI Requirements Analyzer — system boundary</text>
+<text x="267" y="229" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#7A8493" font-weight="700" text-anchor="start">INPUT</text>
+<text x="267" y="564" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#7A8493" font-weight="700" text-anchor="start">ANALYSIS</text>
+<polyline points="267,535 1348,535" fill="none" stroke="#DCE1E8" stroke-width="1"/>
+<text x="267" y="924" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#7A8493" font-weight="700" text-anchor="start">REVIEW</text>
+<polyline points="267,895 1348,895" fill="none" stroke="#DCE1E8" stroke-width="1"/>
+<text x="267" y="1244" font-family="Segoe UI,Arial,sans-serif" font-size="14" fill="#7A8493" font-weight="700" text-anchor="start">CONTINUITY — FUTURE</text>
+<polyline points="267,1215 1348,1215" fill="none" stroke="#DCE1E8" stroke-width="1"/>
+<polyline points="146,900 205,900 205,245 345,245" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,345 345,345" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,445 345,445" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,680 345,680" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,1020 345,1020" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,1320 345,1320" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="146,900 205,900 205,1580 345,1580" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="651,245 877,283" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="651,345 877,307" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="500,644 500,545 810,545 810,350 903,322" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="643,665 884,615" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="651,686 880,704" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="887,805 780,805 640,701" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="650,1009 880,991" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="880,1150 760,1150 620,1041" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="650,1309 880,1291" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="635,1342 892,1412" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="635,1561 760,1515 899,1450" fill="none" stroke="#596477" stroke-width="2" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<polyline points="1460,710 1410,710 1410,600 1201,600" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="1460,710 1410,710 1410,710 1201,710" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="1460,710 1410,710 1410,820 1201,820" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="1460,710 1410,710 1410,1150 1201,1150" fill="none" stroke="#596477" stroke-width="2"/>
+<polyline points="1460,710 1410,710 1410,1340 651,1340" fill="none" stroke="#596477" stroke-width="2"/>
+<ellipse cx="500" cy="245" rx="160" ry="37" fill="#EAF3FF" stroke="#3975B8" stroke-width="1.8"/>
+<text x="500" y="251.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-01  Enter / edit text</text>
+<ellipse cx="500" cy="345" rx="160" ry="37" fill="#EAF3FF" stroke="#3975B8" stroke-width="1.8"/>
+<text x="500" y="340.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-02  Import requirements</text>
+<text x="500" y="362.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">TXT now; PDF / DOCX later</text>
+<ellipse cx="500" cy="445" rx="160" ry="37" fill="#EAF3FF" stroke="#3975B8" stroke-width="1.8"/>
+<text x="500" y="451.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-03  Preview accepted text</text>
+<ellipse cx="1040" cy="295" rx="160" ry="37" fill="#EAF3FF" stroke="#3975B8" stroke-width="1.8"/>
+<text x="1040" y="301.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-04  Validate input</text>
+<ellipse cx="500" cy="680" rx="160" ry="37" fill="#EAF7F0" stroke="#34805A" stroke-width="1.8"/>
+<text x="500" y="686.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-05  Analyze requirements</text>
+<ellipse cx="1040" cy="600" rx="160" ry="37" fill="#EAF7F0" stroke="#34805A" stroke-width="1.8"/>
+<text x="1040" y="595.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-06  Identify candidate</text>
+<text x="1040" y="617.0" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#25354A" font-weight="400" text-anchor="middle">functional / non-functional items</text>
+<ellipse cx="1040" cy="710" rx="160" ry="37" fill="#EAF7F0" stroke="#34805A" stroke-width="1.8"/>
+<text x="1040" y="716.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-07  Check for ambiguity</text>
+<ellipse cx="1040" cy="820" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="1040" y="815.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-08  Review risks</text>
+<text x="1040" y="837.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">and constraints</text>
+<ellipse cx="500" cy="1020" rx="160" ry="37" fill="#EAF7F0" stroke="#34805A" stroke-width="1.8"/>
+<text x="500" y="1026.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-09  Review findings</text>
+<ellipse cx="1040" cy="980" rx="160" ry="37" fill="#EAF7F0" stroke="#34805A" stroke-width="1.8"/>
+<text x="1040" y="975.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-10  Inspect source excerpts,</text>
+<text x="1040" y="997.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">explanations and questions</text>
+<ellipse cx="1040" cy="1150" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="1040" y="1156.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-11  Request clearer wording</text>
+<ellipse cx="500" cy="1320" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="500" y="1326.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-12  Discuss the document</text>
+<ellipse cx="1040" cy="1280" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="1040" y="1275.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-13  Save project, analysis</text>
+<text x="1040" y="1297.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">and conversation</text>
+<ellipse cx="1040" cy="1430" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="1040" y="1425.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-14  Use saved requirements</text>
+<text x="1040" y="1447.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">and project decisions</text>
+<ellipse cx="500" cy="1580" rx="160" ry="37" fill="#F2F2F5" stroke="#777A88" stroke-width="1.8"/>
+<text x="500" y="1575.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">UC-15  Open saved project</text>
+<text x="500" y="1597.0" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="middle">and conversation history</text>
+<rect x="709" y="225" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="758" y="243" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="709" y="326" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="758" y="344" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="761" y="432" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="810" y="450" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="711" y="602" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="760" y="620" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="711" y="664" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="760" y="682" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="716" y="769" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="765" y="787" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«extend»</text>
+<rect x="716" y="962" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="765" y="980" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="713" y="1110" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="762" y="1128" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«extend»</text>
+<rect x="716" y="1256" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="765" y="1274" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="711" y="1345" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="760" y="1363" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<rect x="716" y="1485" width="98" height="24" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1"/>
+<text x="765" y="1503" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#596477" font-weight="400" text-anchor="middle">«include»</text>
+<circle cx="115" cy="854" r="15" fill="white" stroke="#26374D" stroke-width="2"/>
+<polyline points="115,869 115,924" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="87,892 143,892" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="115,924 91,963" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="115,924 139,963" fill="none" stroke="#26374D" stroke-width="2"/>
+<text x="115" y="990" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#25354A" font-weight="700" text-anchor="middle">Reviewer</text>
+<text x="115" y="1015" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#647086" font-weight="400" text-anchor="middle">Student / analyst</text>
+<text x="115" y="1037" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#647086" font-weight="400" text-anchor="middle">Developer / supervisor</text>
+<circle cx="1490" cy="664" r="15" fill="white" stroke="#26374D" stroke-width="2"/>
+<polyline points="1490,679 1490,734" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="1462,702 1518,702" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="1490,734 1466,773" fill="none" stroke="#26374D" stroke-width="2"/>
+<polyline points="1490,734 1514,773" fill="none" stroke="#26374D" stroke-width="2"/>
+<text x="1490" y="800" font-family="Segoe UI,Arial,sans-serif" font-size="19" fill="#25354A" font-weight="700" text-anchor="middle">AI service</text>
+<text x="1490" y="825" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#647086" font-weight="400" text-anchor="middle">Gemini API</text>
+<text x="1490" y="847" font-family="Segoe UI,Arial,sans-serif" font-size="15" fill="#647086" font-weight="400" text-anchor="middle">Supporting actor</text>
+<text x="1040" y="864" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#647086" font-weight="400" text-anchor="middle">Extension: broader review is requested.</text>
+<text x="1040" y="1195" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#647086" font-weight="400" text-anchor="middle">Extension: reviewer requests a reformulation.</text>
+<text x="500" y="1680" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#647086" font-weight="400" text-anchor="middle">Saved projects, history and decisions</text>
+<text x="500" y="1705" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#647086" font-weight="400" text-anchor="middle">require later requirements and estimates.</text>
+<text x="270" y="1770" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#596477" font-weight="400" text-anchor="start">Reviewer retains responsibility for interpreting and approving suggestions.</text>
+<text x="65" y="1840" font-family="Segoe UI,Arial,sans-serif" font-size="18" fill="#25354A" font-weight="700" text-anchor="start">UML key</text>
+<text x="65" y="1870" font-family="Segoe UI,Arial,sans-serif" font-size="17" fill="#25354A" font-weight="400" text-anchor="start">Solid line: actor participation. Dashed arrow: «include» = required reused behavior; «extend» = optional addition.</text>
+<text x="65" y="1902" font-family="Segoe UI,Arial,sans-serif" font-size="16" fill="#647086" font-weight="400" text-anchor="start">Validation failures, retries and loading states are alternate flows, not separate user goals. No authentication or collaboration is implied.</text>
+</svg>
