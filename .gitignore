@@ -6,5 +6,7 @@ node_modules/
 .env.*
 !.env.example
 *.zip
+data/
+*.sqlite3*
 /jira-original-plan-backup.json
 /jira-cleanup-*.png

@@ -1,4 +1,4 @@
-import {position,screenToWorld} from './board-model.mjs';
+import {position,screenToWorld} from './board-model.mjs?v=20261119-accounts';
 
 const SVG='http://www.w3.org/2000/svg';
 function svgElement(tag,attributes={}){
@@ -25,7 +25,7 @@ export function renderVisual(card){
   return svg;
 }
 
-export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,newObjectPosition,addCard}){
+export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,newObjectPosition,addCard,getProjectEpoch}){
   let tool='select';
   const toolButtons=document.querySelectorAll('[data-board-tool]');
   function setTool(value){
@@ -39,7 +39,7 @@ export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,
     const panning=event.button===1||tool==='pan';
     if((event.button!==0&&event.button!==1)||(!panning&&(tool==='select'||event.target.closest('.board-card'))))return;
     event.preventDefault();viewport.setPointerCapture(event.pointerId);
-    const rect=viewport.getBoundingClientRect(),initialCamera=getCamera();
+    const epoch=getProjectEpoch();const rect=viewport.getBoundingClientRect(),initialCamera=getCamera();
     const point=e=>{const world=screenToWorld(e.clientX-rect.left,e.clientY-rect.top,initialCamera);return [world.x,world.y];};
     const start=point(event),client=[event.clientX,event.clientY];
     let points=[start],end=start;
@@ -47,6 +47,7 @@ export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,
     const color=document.querySelector('#paint-color').value,strokeWidth=Number(document.querySelector('#paint-width').value);
     const fill=document.querySelector('#shape-fill').checked?color:'none';
     function move(e){
+      if(epoch!==getProjectEpoch())return;
       if(panning){setCamera(initialCamera.left-(e.clientX-client[0]),initialCamera.top-(e.clientY-client[1]));return;}
       end=point(e);
       if(tool==='drawing'&&points.length<2000)points.push(end);
@@ -69,7 +70,7 @@ export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,
     function finish(e){
       viewport.removeEventListener('pointermove',move);viewport.removeEventListener('pointerup',finish);viewport.removeEventListener('pointercancel',cancel);preview.remove();
       const hasStroke=tool==='drawing'?points.some(p=>Math.hypot(p[0]-start[0],p[1]-start[1])>3):Math.hypot(end[0]-start[0],end[1]-start[1])>3;
-      if(!panning&&e.type!=='pointercancel'&&hasStroke){addCard(geometry(),{reveal:false});}
+      if(epoch===getProjectEpoch()&&!panning&&e.type!=='pointercancel'&&hasStroke){addCard(geometry(),{reveal:false});}
     }
     function cancel(e){finish(e);}
     viewport.addEventListener('pointermove',move);viewport.addEventListener('pointerup',finish);viewport.addEventListener('pointercancel',cancel);
@@ -79,12 +80,13 @@ export function installVisualTools({canvas,viewport,getZoom,getCamera,setCamera,
   });
   document.querySelector('#add-image').addEventListener('click',()=>document.querySelector('#board-image-file').click());
   document.querySelector('#board-image-file').addEventListener('change',async event=>{
-    const file=event.target.files[0];if(!file)return;
+    const file=event.target.files[0];if(!file)return;const epoch=getProjectEpoch();
     const button=document.querySelector('#add-image');button.disabled=true;
     let bitmap;
     try{
       if(file.size>12*1024*1024||!['image/png','image/jpeg','image/webp','image/gif'].includes(file.type))throw new Error('Choose a PNG, JPEG, WebP or GIF image up to 12 MB.');
       bitmap=await createImageBitmap(file);
+      if(epoch!==getProjectEpoch())throw new Error('Project changed. Select the image again in the intended project.');
       const ratio=Math.min(1,1200/Math.max(bitmap.width,bitmap.height));
       const output=document.createElement('canvas');output.width=Math.max(1,Math.round(bitmap.width*ratio));output.height=Math.max(1,Math.round(bitmap.height*ratio));
       output.getContext('2d').drawImage(bitmap,0,0,output.width,output.height);

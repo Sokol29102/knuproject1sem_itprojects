@@ -90,11 +90,23 @@ class PreviewAcceptanceTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('text/html', response.headers['content-type'])
 
+    def test_board_module_is_served_as_javascript(self):
+        response = self.client.get('/static/board-model.mjs')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(response.headers['content-type'].split(';')[0], {'text/javascript', 'application/javascript'})
+        self.assertIn('export function', response.text)
+
+    def test_module_reload_replaces_a_previously_cached_mime_type(self):
+        initial = self.client.get('/static/board-model.mjs')
+        reloaded = self.client.get('/static/board-model.mjs', headers={'If-None-Match': initial.headers['etag']})
+        self.assertEqual(reloaded.status_code, 200)
+        self.assertIn(reloaded.headers['content-type'].split(';')[0], {'text/javascript', 'application/javascript'})
+
     def test_product_demo_is_available_separately_from_the_working_input_prototype(self):
         response = self.client.get('/demo')
         self.assertEqual(response.status_code, 200)
         self.assertIn('text/html', response.headers['content-type'])
-        self.assertIn('Simulated', response.text)
+        self.assertIn('Gemini project workspace', response.text)
         self.assertEqual(self.client.get('/').status_code, 200)
 
     def test_home_opens_project_chooser_and_input_prototype_has_its_own_route(self):

@@ -5,8 +5,9 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt \
     && useradd --create-home --uid 10001 appuser
-COPY main.py ./
+COPY main.py accounts.py ./
 COPY static ./static
+RUN mkdir -p /app/data && chown appuser:appuser /app/data
 USER appuser
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
