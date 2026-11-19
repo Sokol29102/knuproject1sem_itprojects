@@ -2,6 +2,8 @@
 
 **Baseline:** 24 October 2026. These requirements define planned behavior for the two Jira increments. They are not claims of implementation or successful verification.
 
+**Status — 19 November 2026:** FR-01–FR-05 are implemented at `/prototype`. FR-06–FR-14 (the dedicated analysis and findings screen) are not implemented yet. The current release scope is defined separately in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md).
+
 **Primary actor:** a student or junior analyst reviewing a short English software requirements sample in a local browser application.
 
 **Boundary:** one user, pasted text or UTF-8 TXT, at most 20,000 decoded characters. No accounts, persistent history, chat, PDF/DOCX, or deployment in these sprints. All requirements below are committed scope unless explicitly described as a future extension.
