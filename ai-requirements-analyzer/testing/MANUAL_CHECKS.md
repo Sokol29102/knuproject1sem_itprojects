@@ -38,7 +38,7 @@ Planning example: two people have six hours each; A takes 4h, B takes 5h after A
 
 ## M-07 Input prototype
 
-At `/prototype`, submit pasted text and a synthetic UTF-8 TXT file. Check preview text, source, count and line breaks. Switch sources, change accepted text and verify old preview clears. Try blank input, invalid UTF-8, non-TXT and over-limit content, then correct and resubmit. While pending, controls must not allow an old response to become the preview of new input. Literal HTML-looking text renders as text. No dedicated Analyze/findings screen is expected in v1.0.
+At `/prototype`, submit pasted text and a synthetic UTF-8 TXT file. Check preview text, source, count and line breaks. Switch sources, change accepted text and verify old preview clears. Try blank input, invalid UTF-8, non-TXT and over-limit content, then correct and resubmit. While pending, controls must not allow an old response to become the preview of new input. Literal HTML-looking text renders as text. Signed out, **Analyze with Gemini** asks you to sign in and sends nothing. Signed in, analyze the sample: findings show category, exact excerpt, line, explanation and question, labelled as AI suggestions. Edit the text and verify old findings clear. Check the result in the dark theme.
 
 ## M-08 Independent startup and recovery
 

@@ -2,7 +2,7 @@
 
 **Baseline:** 24 October 2026. These requirements define planned behavior for the two Jira increments. They are not claims of implementation or successful verification.
 
-**Status — 19 November 2026:** FR-01–FR-05 are implemented at `/prototype`. FR-06–FR-14 (the dedicated analysis and findings screen) are not implemented yet. The current release scope is defined separately in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md).
+**Status — 19 November 2026:** FR-01–FR-05 are implemented at `/prototype`. FR-06–FR-14 (the dedicated analysis and findings screen) are implemented at `/prototype` for signed-in users. The current release scope is defined separately in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md).
 
 **Primary actor:** a student or junior analyst reviewing a short English software requirements sample in a local browser application.
 

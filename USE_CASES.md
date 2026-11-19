@@ -6,7 +6,7 @@
 - `AI-Requirements-Analyzer-Use-Cases.svg`: scalable diagram for documents and presentations.
 - `AI-Requirements-Analyzer-Use-Cases.png`: image preview.
 
-The diagram covers the planned full product vision. Blue represents Sprint 1, green Sprint 2, and gray future scope. As of 19 November 2026, the Sprint 1 use cases are implemented; the Sprint 2 analysis use cases (UC-05–UC-10) are not. The v1.0 candidate adds accounts, server-saved projects and a Gemini board dialogue, described in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md). Future use cases need their own requirements and estimates before implementation; showing them does not add them to either committed sprint.
+The diagram covers the planned full product vision. Blue represents Sprint 1, green Sprint 2, and gray future scope. As of 19 November 2026, the Sprint 1 use cases and the Sprint 2 analysis use cases UC-05–UC-07, UC-09 and UC-10 are implemented at `/prototype`; UC-08 remains future scope. The v1.0 candidate adds accounts, server-saved projects and a Gemini board dialogue, described in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md). Future use cases need their own requirements and estimates before implementation; showing them does not add them to either committed sprint.
 
 ## Actors
 

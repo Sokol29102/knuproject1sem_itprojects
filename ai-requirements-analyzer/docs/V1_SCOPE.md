@@ -6,7 +6,7 @@
 
 A student or junior analyst can create a private project, organize requirements on a persistent visual board, and use Gemini to discuss or change that board. The same application provides a separate text/TXT validation and preview flow.
 
-This document defines the current v1.0 product scope. The older Sprint 1/2 requirements remain a historical planning baseline; they do not imply that a dedicated source-linked analysis screen is implemented.
+This document defines the current v1.0 product scope. The older Sprint 1/2 requirements remain a historical planning baseline; the dedicated source-linked analysis screen (FR-06–FR-14) was added to this scope on 19 November 2026.
 
 ## Included scope
 
@@ -16,6 +16,7 @@ This document defines the current v1.0 product scope. The older Sprint 1/2 requi
 - Board navigation, selection, moving/resizing, copy/paste, undo/redo, deletion and manual pinning.
 - Server-side Gemini dialogue using project and board context; explicit board requests can add, edit, move, resize or delete unlocked objects.
 - Pasted text and UTF-8 TXT validation/preview at `/prototype`.
+- Source-linked Gemini analysis of the accepted text at `/prototype` for signed-in users: functional, non-functional and ambiguous findings, each with an exact source excerpt and line, explanation and clarification question. Excerpts not found in the text are listed separately as unsupported.
 - Native Windows startup instructions, Docker configuration, backend and board tests, and configuration without committed secrets.
 
 ## Acceptance criteria
@@ -43,7 +44,7 @@ For V1-05, check missing-key/provider-failure handling with controlled configura
 
 ## Release boundary
 
-Excluded from v1.0: team sharing, separate administrator/reviewer permissions, formal approval workflows, persistent conversation history, project deletion/renaming, password recovery, PDF/DOCX extraction, a dedicated source-linked findings screen, Jira integration inside the app, public hosting and a defined v2.0 migration. New board features are deferred until these acceptance checks pass.
+Excluded from v1.0: team sharing, separate administrator/reviewer permissions, formal approval workflows, persistent conversation history, project deletion/renaming, password recovery, PDF/DOCX extraction, Jira integration inside the app, public hosting and a defined v2.0 migration. New board features are deferred until these acceptance checks pass.
 
 Keep the existing use-case diagram as the minimal visual reference. No new diagram set, paid documentation service or additional team ceremonies are included in this release scope. These are scope choices, not evidence that every requirement of the separate laboratory brief has been satisfied.
 

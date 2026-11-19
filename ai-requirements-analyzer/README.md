@@ -179,7 +179,9 @@ Open `/prototype` for these working input checks.
 3. Submit only spaces. Show the error, enter valid text, and submit again without restarting.
 4. Choose **Upload TXT** and select `examples/requirements.txt`. Submit and show its filename and content in the preview. The selected source replaces the other source for that submission.
 5. Upload a non-TXT file or a file that is not UTF-8 and show the rejection. The API also validates file type; the browser's file filter is only a convenience.
-6. Explain the next increment: AI analysis will build on this same input flow. No generated findings are simulated in this prototype.
+6. Sign in on the home page, return to `/prototype`, validate the sample and choose **Analyze with Gemini**. Show a finding's category, exact source excerpt and line, explanation and clarification question, and the label that these are AI suggestions requiring human review. Edit the text and show that the findings clear.
+
+Analysis calls Gemini once per click through the same server-side connection as the dialogue, so it needs the same key and an account. Excerpts that do not appear exactly in the submitted text are not shown as findings; they are listed separately as unsupported. At most 20 findings are returned.
 
 ## Validation rules
 

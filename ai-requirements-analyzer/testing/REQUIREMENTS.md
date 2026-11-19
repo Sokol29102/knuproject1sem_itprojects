@@ -42,15 +42,15 @@ The current release scope is `docs/V1_SCOPE.md`. Later user requests make theme 
 | FR-01, FR-02 | Implemented text entry and TXT upload. `test_app.py` verifies accepted text, decoding and file type handling; M-07 verifies UI entry/upload. |
 | FR-03 | Implemented backend rejection of blank, oversized, invalid UTF-8 and unsupported files. Code-point, line-ending and BOM boundaries are automated. |
 | FR-04, FR-05 | Accepted preview and retry API behavior are tested; M-07 verifies rendering and clearing old preview after edits. |
-| FR-06 | Dedicated Analyze action from the input prototype remains planned. Board dialogue is a separate implemented feature. No passing “Analyze” test is claimed. |
-| FR-07 | Dedicated analysis progress remains planned. Chat pending behavior needs M-06; preview pending behavior needs M-07. |
-| FR-08 | Structured candidate functional/non-functional findings with source excerpts remain planned. Existing card types do not satisfy this requirement. |
-| FR-09 | Dedicated ambiguity findings containing excerpt, explanation and clarification question remain planned. Conversational advice is not that findings screen. |
-| FR-10 | Exact source-excerpt validation for dedicated findings is not implemented. Existing Gemini JSON/action validation does not establish source traceability. |
-| FR-11 | Failure and retry are implemented/tested for dialogue; dedicated analysis failure handling remains planned. |
-| FR-12 | Dedicated valid-empty-analysis/no-findings state remains planned. `actions: []` is an ordinary chat response, not an analysis no-findings result. |
-| FR-13 | Input-preview invalidation needs M-07; stale board-action protection needs M-06. Source-linked analysis/result association remains planned. |
-| FR-14 | Live dialogue identifies Gemini and reports applied actions. Dedicated analysis advisory labels remain planned. Explicit board changes now apply without Apply/Discard by the later user instruction. |
+| FR-06 | Implemented: **Analyze with Gemini** on `/prototype` sends the accepted text for signed-in users. `test_analysis.py` covers the request contract, sign-in requirement and calls only after valid input. |
+| FR-07 | Analysis shows a loading state and disables repeat requests; UI behavior needs M-07. Chat pending behavior needs M-06. |
+| FR-08 | Implemented: findings are categorized as functional, non-functional or ambiguous with exact excerpts and line numbers; `test_analysis.py` verifies the structure and categories. |
+| FR-09 | Implemented: every finding, including ambiguity findings, has an excerpt, explanation and clarification question. |
+| FR-10 | Implemented: excerpts are checked against the submitted text; invented or incomplete findings are returned as `unsupported` with a reason (`test_analysis.py`). |
+| FR-11 | Failure and retry are implemented and tested for dialogue and analysis; both use the same provider call and error messages. |
+| FR-12 | Implemented: an empty `findings` list is a valid result and shows a no-findings state; the API case is automated. |
+| FR-13 | Editing the input clears the preview and any findings; a response for older input is ignored. UI behavior needs M-07; stale board-action protection needs M-06. |
+| FR-14 | Live dialogue identifies Gemini and reports applied actions. Analysis results are labelled LIVE with the model name and as AI suggestions requiring human review. Explicit board changes now apply without Apply/Discard by the later user instruction. |
 
 ## Laboratory and later product work
 

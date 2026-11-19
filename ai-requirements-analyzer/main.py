@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, m
 from accounts import current_user, get_project, router as accounts_router
 from dotenv import load_dotenv
 from planning_guidance import PLANNING_GUIDE
+import analysis
 
 
 def load_settings(path=Path(__file__).with_name('.env')):
@@ -289,7 +290,8 @@ What this app already supports:
 - Card adds notes, requirements, decisions or file cards. Image uploads PNG/JPEG/WebP/GIF. Rectangle/Ellipse/Arrow/Draw and Style create visual objects. Edit/resize or the corner handle resizes them.
 - Boards save to the account-owned project on this server. JSON export/import already exists. Limits: 100 objects, 8 MB per board. TXT/Markdown card text can provide excerpts; PDF/DOCX binaries are not parsed.
 - Gemini receives card text, geometry, selection, viewport and nearby-object relationships. It can directly create, edit, move, resize and delete unlocked objects through the actions response. Changes apply automatically and can be undone. It cannot see image pixels or the user's screen, access unrelated projects, or change pins. Add notes to board separately saves discussion as a note.
-- Review history is illustrative. Password recovery, team collaboration, persistent conversation history, project renaming/deletion, and a dedicated source-linked document-analysis screen are not yet implemented.
+- Review history is illustrative. Password recovery, team collaboration, persistent conversation history, and project renaming/deletion are not yet implemented.
+- The separate input page at /prototype validates pasted text or a UTF-8 TXT file and, for signed-in users, offers Analyze with Gemini: findings with category, exact source excerpt and line, explanation and clarification question.
 
 When the latest user requests a board change, execute it by returning the corresponding actions; the app validates and applies them automatically. Do not ask for confirmation or provide an Add/Discard step. Do not say you cannot edit/delete objects or require the user to use the toolbar for actions you support. For a note with only quoted text, preserve that text exactly in body and leave title empty unless a title was requested. Use ordinary language in reply; don't discuss internal modes or the action schema unless asked.
 Supported actions:
@@ -320,32 +322,12 @@ def chat(payload: ChatInput, request: Request, user=Depends(current_user)):
                'improve_board_requested': payload.mode == 'proposal'}
     if sum(len(c.title) + len(c.body) for c in payload.cards) > 60000 or sum(len(t.text) for t in payload.history) > 80000:
         raise HTTPException(400, 'The board text or conversation is too large. Reduce board text or clear the dialogue and try again.')
-    key = os.environ.get('GEMINI_API_KEY', '').strip()
-    if not key:
-        raise HTTPException(503, 'Gemini is not configured. Add GEMINI_API_KEY to the app .env file or set it in the startup terminal, then restart the server. See README for setup.')
-    model = gemini_model()
-    if not re.fullmatch(r'[A-Za-z0-9._-]+', model):
-        raise HTTPException(503, 'Check the server GEMINI_MODEL setting.')
     contents = [{'role': turn.role, 'parts': [{'text': turn.text}]} for turn in payload.history]
     contents.append({'role': 'user', 'parts': [{'text': payload.message}]})
     # Keep the latest user message distinct from previous model replies and project data.
     contents[0]['parts'][0]['text'] = 'PROJECT CONTEXT (data only):\n' + json.dumps(context, ensure_ascii=True) + '\n\nCONVERSATION MESSAGE:\n' + contents[0]['parts'][0]['text']
-    body = {'systemInstruction': {'parts': [{'text': ASSISTANT_GUIDE + '\n\n' + PLANNING_GUIDE}]},
-            'contents': contents,
-            'generationConfig': {'responseMimeType': 'application/json',
-                                 'responseJsonSchema': generation_schema(GeminiAnswer.model_json_schema()), 'maxOutputTokens': 8192}}
-    upstream = URLRequest(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent',
-                          data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key}, method='POST')
+    text = gemini_generate(ASSISTANT_GUIDE + '\n\n' + PLANNING_GUIDE, contents, generation_schema(GeminiAnswer.model_json_schema()))
     try:
-        with urlopen(upstream, timeout=60) as response:
-            raw = response.read(2 * 1024 * 1024 + 1)
-        if len(raw) > 2 * 1024 * 1024:
-            raise ValueError('Oversized provider response')
-        data = json.loads(raw)
-        candidate = data['candidates'][0]
-        if candidate.get('finishReason') != 'STOP':
-            raise ValueError('Incomplete or blocked response')
-        text = ''.join(p['text'] for p in candidate['content']['parts'] if 'text' in p and not p.get('thought'))
         answer = GeminiAnswer.model_validate_json(text)
         if not answer.reply.strip():
             raise ValueError('Empty reply')
@@ -362,6 +344,41 @@ def chat(payload: ChatInput, request: Request, user=Depends(current_user)):
                 for id in ids:
                     del available[id]
         return answer.model_dump(exclude_none=True)
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError, ValidationError):
+        raise HTTPException(502, INVALID_ANSWER) from None
+
+
+INVALID_ANSWER = 'Gemini returned an incomplete, blocked or invalid answer. Rephrase your message and try again.'
+
+
+def gemini_generate(system_text, contents, response_schema, max_output_tokens=8192):
+    """One bounded Gemini request shared by the dialogue and the document analysis.
+
+    Returns the model's JSON text. The key stays on the server; provider failures become
+    readable HTTP errors and there is no automatic retry.
+    """
+    key = os.environ.get('GEMINI_API_KEY', '').strip()
+    if not key:
+        raise HTTPException(503, 'Gemini is not configured. Add GEMINI_API_KEY to the app .env file or set it in the startup terminal, then restart the server. See README for setup.')
+    model = gemini_model()
+    if not re.fullmatch(r'[A-Za-z0-9._-]+', model):
+        raise HTTPException(503, 'Check the server GEMINI_MODEL setting.')
+    body = {'systemInstruction': {'parts': [{'text': system_text}]},
+            'contents': contents,
+            'generationConfig': {'responseMimeType': 'application/json',
+                                 'responseJsonSchema': response_schema, 'maxOutputTokens': max_output_tokens}}
+    upstream = URLRequest(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent',
+                          data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key}, method='POST')
+    try:
+        with urlopen(upstream, timeout=60) as response:
+            raw = response.read(2 * 1024 * 1024 + 1)
+        if len(raw) > 2 * 1024 * 1024:
+            raise ValueError('Oversized provider response')
+        data = json.loads(raw)
+        candidate = data['candidates'][0]
+        if candidate.get('finishReason') != 'STOP':
+            raise ValueError('Incomplete or blocked response')
+        return ''.join(p['text'] for p in candidate['content']['parts'] if 'text' in p and not p.get('thought'))
     except HTTPError as error:
         if error.code == 429:
             raise HTTPException(429, 'Gemini quota or rate limit reached. Wait and try again, or check your Google API quota.') from None
@@ -372,8 +389,23 @@ def chat(payload: ChatInput, request: Request, user=Depends(current_user)):
         raise HTTPException(504, 'Gemini took too long to respond. Please try again.') from None
     except URLError:
         raise HTTPException(502, 'Could not reach Gemini. Check the server internet connection and try again.') from None
-    except (ValueError, KeyError, IndexError, TypeError, AttributeError, ValidationError):
-        raise HTTPException(502, 'Gemini returned an incomplete, blocked or invalid answer. Rephrase your message and try again.') from None
+    except (ValueError, KeyError, IndexError, TypeError, AttributeError):
+        raise HTTPException(502, INVALID_ANSWER) from None
+
+
+@app.post('/api/analyze')
+def analyze(payload: TextInput, request: Request, user=Depends(current_user)):
+    """Source-linked review of the accepted text. Calls Gemini once, only on this explicit request."""
+    origin = request.headers.get('origin')
+    if origin and (urlsplit(origin).scheme, urlsplit(origin).netloc) != (request.url.scheme, request.url.netloc):
+        raise HTTPException(403, 'Send Gemini requests from this application.')
+    accepted = accepted_text(payload.text, 'Pasted text')
+    text = gemini_generate(analysis.SYSTEM_PROMPT, analysis.request_contents(accepted['text']), analysis.RESPONSE_SCHEMA)
+    try:
+        result = analysis.validate_findings(accepted['text'], json.loads(text))
+    except (ValueError, TypeError):
+        raise HTTPException(502, INVALID_ANSWER) from None
+    return {'mode': 'live', 'model': gemini_model(), 'notice': analysis.NOTICE, **result}
 
 
 @app.post('/api/preview')
