@@ -2,7 +2,7 @@
 
 AI Requirements Analyzer is a university project for helping students and junior analysts review software requirements before implementation. Its goal is to connect unclear statements to their source, explain concerns, and suggest questions for human review.
 
-**Current status — 27 October 2026:** the Sprint 1 text-input and validation prototype is implemented. The board is the main workspace, with editable cards and a simulated dialogue/proposal demo. Real Gemini analysis and dialogue remain planned. The current application makes no AI requests and needs no API key.
+**Current status — 19 November 2026:** the repository contains the v1.0 candidate defined in [V1_SCOPE.md](ai-requirements-analyzer/docs/V1_SCOPE.md). It adds local accounts, account-owned projects saved in SQLite, and a server-side Gemini dialogue that can discuss the board and apply undoable board changes. The Sprint 1 text-input and validation prototype remains at `/prototype`. A dedicated source-linked findings screen (Sprint 2, FR-06–FR-14) is not implemented yet. v1.0 has not been tagged or accepted.
 
 ## Implemented input prototype
 
@@ -18,43 +18,38 @@ This increment covers **FR-01–FR-05** in [the functional requirements](FUNCTIO
 
 ## Board workspace
 
-Open `/` or `/demo`, then choose **AI Requirements Analyzer → Open workspace**. Projects open directly on the board, with floating tools and a dialogue panel on the right.
+Open `/`, create an account or sign in, then create a project or open one you own. Projects open directly on the board, with floating tools and a dialogue panel on the right.
 
-- Work on a open-ended canvas that fills the workspace beside the right-hand dialogue panel. Use the floating toolbar and Board menu instead of stacked page controls.
-- Add and edit notes, requirements, decisions, and file cards. Draw rectangles, ellipses, arrows and freehand sketches with color, line-width and fill controls.
-- Upload local PNG, JPEG, WebP or GIF images; they are resized/re-encoded in the browser and embedded in the board.
-- Drag objects to move them, drag their bottom-right handle to resize, or enter dimensions in the editor. Use the mouse wheel to zoom toward the cursor (1–200%); use Pan to move around. The canvas has no scrollbars or fixed edges. Use Board → Fit board to find your notes again; new objects appear in the visible working area.
-- Search card titles and contents and filter by card type.
-- Duplicate a card or undo card deletions during the current session.
-- Move cards by dragging or keyboard; pin/unpin manually. Starter cards, duplicates, and dialogue notes start unpinned.
-- Board contents and positions save automatically in this browser. A visible status reports saving failures; JSON export/import provides a portable backup.
-- Add TXT/Markdown excerpts or references to other files. PDF/DOCX contents are not parsed.
-- Use the guided dialogue demo and explicitly add its notes to the board.
-- Preview and apply/discard simulated model proposals. No model is connected.
+- Register with a username and password; sign in and out. Each project belongs to its account, and another account cannot list, open or save it.
+- Work on an open-ended canvas with notes, requirements, decisions, file cards, rectangles, ellipses, arrows, freehand drawings and local images.
+- Select several objects, move them together, copy/paste them, delete them and use undo/redo (Ctrl+Z / Ctrl+Y). Pinned objects stay locked.
+- Board contents save automatically to the project in the server database. A save from an outdated tab is rejected instead of overwriting newer work. JSON export/import provides a portable backup.
+- Open the dialogue to ask Gemini about the project and current board. Explicit requests can add, edit, move, resize or delete unlocked objects; each reply's changes apply as one batch that Ctrl+Z reverses. Questions alone do not change the board.
+- Choose a light or dark theme in the project chooser.
 
-Browser saving is specific to the browser and site address; there is no server database or cloud sync. Dialogue and deletion undo history remain session-only. Clearing browser data removes the saved board, so export JSON for a backup. Project creation/settings and review history remain illustrative previews.
+Dialogue and undo history are session-only. Project renaming/deletion, team sharing, password reset and review history remain outside this version.
 
-See the [presentation walkthrough](ai-requirements-analyzer/docs/PRODUCT-DEMO.md) for a board-focused demonstration.
+See the [application run guide](ai-requirements-analyzer/README.md) for limits and details, and the [presentation walkthrough](ai-requirements-analyzer/docs/PRODUCT-DEMO.md) for a board-focused demonstration.
 
 ## Product purpose
 
 The initial audience is university software-project teams and junior business analysts reviewing short English requirements documents. For example, “The system should respond quickly” leaves the response-time target and operating conditions unresolved.
 
-The planned AI reviewer will show the source excerpt, explain what is missing, and ask a clarification question such as “What response time is acceptable, for which operation, and under what load?” A stakeholder supplies the target; AI suggestions require human review.
+The planned AI reviewer will show the source excerpt, explain what is missing, and ask a clarification question such as “What response time is acceptable, for which operation, and under what load?” Today the board dialogue can already discuss such statements with Gemini; the dedicated findings screen with exact source excerpts is still planned. A stakeholder supplies the target; AI suggestions require human review.
 
 ## Delivery plan and Jira status
 
-The Jira project **AI Requirements Analyzer (SCRUM)** contains three epics and 39 work items as of 27 October 2026. Each sprint assumes one student developer, with 11 committed hours plus 2 hours of contingency. Dates are provisional planning assumptions.
+The Jira project **AI Requirements Analyzer (SCRUM)** contains three epics and 39 work items as of 19 November 2026. Each sprint assumes one student developer, with 11 committed hours plus 2 hours of contingency. Dates are provisional planning assumptions.
 
 | Increment | Current status |
 | --- | --- |
 | Sprint 1 — plan and input prototype, through 30 October | Input, validation, and preview are implemented. Jira parent tasks SCRUM-42–SCRUM-45 are marked Done. Planning subtask SCRUM-53 remains In Progress, so the tracker still needs reconciliation. |
-| Sprint 2 — AI review, 2–6 November | Planned real Gemini analysis, candidate functional/non-functional categories, ambiguity findings, source-excerpt validation, loading/error/empty states, and integrated evidence. SCRUM-46–SCRUM-49 remain In Progress in Jira; the backend does not yet implement these features. |
-| Sprint 3 — Gemini dialogue and controlled board actions, 9–13 November | Planned live dialogue using selected context and add/edit card proposals that a person previews and applies or discards. Epic SCRUM-66 depends on Sprint 2. Current dialogue and proposals are simulated. |
+| Sprint 2 — AI review, 2–6 November | The server-side Gemini connection, configuration and error handling are implemented and shared with the dialogue. The dedicated Analyze screen with categories, exact source excerpts and findings states is not in this version. SCRUM-46–SCRUM-49 are marked Done in Jira, so the tracker needs reconciliation. |
+| Sprint 3 — Gemini dialogue and controlled board actions, 9–13 November | Live dialogue using the project and board context is implemented. Board changes apply directly as one undoable batch per reply, and Gemini may also move, resize or delete unlocked objects. This differs from the planned preview-then-apply flow and the add/edit-only limit in SCRUM-69; the acceptance criteria need to be updated or the behavior changed. |
 
 Jira status records tracking decisions; it does not by itself prove that acceptance criteria or a live model demonstration have passed. See [Sprint 1 planning](https://knuprojectus.atlassian.net/browse/SCRUM-40), [Sprint 2 analysis](https://knuprojectus.atlassian.net/browse/SCRUM-41), and [Sprint 3 dialogue](https://knuprojectus.atlassian.net/browse/SCRUM-66).
 
-PDF/DOCX extraction, broader risk analysis, database-backed history, conversation memory, accounts, collaboration, and advanced retrieval remain future scope.
+PDF/DOCX extraction, the source-linked findings screen, broader risk analysis, review history, conversation memory, collaboration, and advanced retrieval remain future scope.
 
 ## Running the application
 
@@ -73,6 +68,8 @@ py -3.12 -m venv .venv
 
 Create the environment and install dependencies on first setup; use the final command for subsequent starts. Keep the terminal open and press Ctrl+C to stop the server.
 
+For Gemini, copy `ai-requirements-analyzer/.env.example` to `.env` in the same folder and set `GEMINI_API_KEY`, or set the variable in the environment, which takes precedence. `.env` and the `data/` database folder are excluded from Git; never commit a real key. Without a key, accounts, projects and boards still work and the dialogue reports the missing configuration.
+
 ### Windows with Docker Desktop
 
 Start Docker Desktop using Linux containers, then open `ai-requirements-analyzer/` and double-click `start-windows.cmd`. Use `stop-windows.cmd` to stop the app. Alternatively, from that folder:
@@ -81,28 +78,22 @@ Start Docker Desktop using Linux containers, then open `ai-requirements-analyzer
 docker compose up --build -d
 ```
 
-Docker configuration and launchers are included. The image was rebuilt and the app started successfully with Docker Compose on 27 October 2026; see the verification notes for the checked scope.
+Docker configuration and launchers are included. Compose reads the same `.env` file and keeps the database in the `project-data` volume. An earlier version was rebuilt and started with Docker Compose on 27 October 2026; the v1.0 candidate has not been checked with Docker.
 
 See the [application run guide](ai-requirements-analyzer/README.md) for prerequisites, troubleshooting, limits, and API details.
 
 ## Verification evidence
 
-The [verification notes](ai-requirements-analyzer/docs/VERIFICATION.md) distinguish earlier browser/backend evidence from the current board change. The current board-model suite has 21 passing tests, including search/type filters, duplication, browser storage round trips, invalid data, and storage failures. Live Gemini integration remains unimplemented. Browser checks against the rebuilt Docker app verified the full-window layout, rectangle creation/style/resize, freehand strokes, local PNG upload, object movement, zoom and refresh persistence. The temporary preview server was unreachable, so checks used the actual app at localhost:8000.
+The [recorded results](ai-requirements-analyzer/testing/RESULTS.md) list 85 passing automated tests from 19 November 2026: 47 backend, API and real-server acceptance checks, and 38 JavaScript board, editing, AI-action and theme checks. They cover account ownership, restart persistence, SQLite backup/restoration, conflicting saves and operation without a Gemini key. Both suites also passed when rerun after the code was added to this repository. Provider responses in these tests are controlled, so they make no live Google requests; live model behavior, browser interaction and clean-machine startup are covered by the [manual checks](ai-requirements-analyzer/testing/MANUAL_CHECKS.md).
 
-Run the backend checks from `ai-requirements-analyzer/` after setting up the Python environment:
+Run all automated checks from `ai-requirements-analyzer/` after setting up the Python environment:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe testing\run_tests.py
 ```
 
-The board-model tests use Node.js:
-
-```powershell
-node --test tests/board.test.mjs
-```
-
-Node.js is needed for these board tests, not for running the application.
+The runner executes the Python suite and the Node.js board tests and writes logs to `testing/results/`. Node.js is needed for these tests, not for running the application. See the [testing guide](ai-requirements-analyzer/testing/README.md) for details.
 
 ## Project documents
 
@@ -110,9 +101,9 @@ Node.js is needed for these board tests, not for running the application.
 - [Use-case model and diagram explanation](USE_CASES.md)
 - [Editable use-case diagram](AI-Requirements-Analyzer-Use-Cases.drawio)
 - [Use-case diagram (SVG)](AI-Requirements-Analyzer-Use-Cases.svg)
-- [Original two-sprint planning baseline](AI-Requirements-Analyzer-Sprint-Plan.md)
+- [Version 1.0 scope and acceptance criteria](ai-requirements-analyzer/docs/V1_SCOPE.md)
 - [Application setup and usage](ai-requirements-analyzer/README.md)
 - [Product-demo walkthrough](ai-requirements-analyzer/docs/PRODUCT-DEMO.md)
-- [Recorded verification evidence](ai-requirements-analyzer/docs/VERIFICATION.md)
+- [Testing guide](ai-requirements-analyzer/testing/README.md), [recorded results](ai-requirements-analyzer/testing/RESULTS.md) and [manual checks](ai-requirements-analyzer/testing/MANUAL_CHECKS.md)
 
-The two-sprint plan is a planning baseline. Current implementation details are described above and in the application guide; Sprint 3 is tracked in Jira under SCRUM-66.
+The original two-sprint planning baseline, `AI-Requirements-Analyzer-Sprint-Plan.md`, was removed from the tree in commit `e9f38ac`; it remains available in the Git history. Current implementation details are described above and in the application guide; Sprint 3 is tracked in Jira under SCRUM-66.

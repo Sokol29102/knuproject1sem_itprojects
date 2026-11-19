@@ -20,7 +20,7 @@ The runner works from another current directory when invoked using its full path
 - `results/backend.log`: Python API and real-server acceptance checks.
 - `results/board-and-theme.log`: JavaScript board, editing, AI-action and theme checks.
 
-Results describe the source hashes in the report. Rerun after changing code; the current workspace has no Git metadata, so the report does not invent a release commit or tag. The next full run replaces the three current result files. `initial-backup-cleanup-failure.log` preserves the initial failed test run and is not a CI run.
+Results describe the source hashes in the report. Rerun after changing code; the report records source hashes rather than a commit or tag. Name the tested Git commit separately when recording a release check. The next full run replaces the three current result files. `initial-backup-cleanup-failure.log` preserves the initial failed test run and is not a CI run.
 
 ## What runs
 
