@@ -18,6 +18,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, m
 from accounts import current_user, get_project, router as accounts_router
 from dotenv import load_dotenv
 from planning_guidance import PLANNING_GUIDE
+import analysis
 
 
 def load_settings(path=Path(__file__).with_name('.env')):
@@ -289,7 +290,8 @@ What this app already supports:
 - Card adds notes, requirements, decisions or file cards. Image uploads PNG/JPEG/WebP/GIF. Rectangle/Ellipse/Arrow/Draw and Style create visual objects. Edit/resize or the corner handle resizes them.
 - Boards save to the account-owned project on this server. JSON export/import already exists. Limits: 100 objects, 8 MB per board. TXT/Markdown card text can provide excerpts; PDF/DOCX binaries are not parsed.
 - Gemini receives card text, geometry, selection, viewport and nearby-object relationships. It can directly create, edit, move, resize and delete unlocked objects through the actions response. Changes apply automatically and can be undone. It cannot see image pixels or the user's screen, access unrelated projects, or change pins. Add notes to board separately saves discussion as a note.
-- Review history is illustrative. Password recovery, team collaboration, persistent conversation history, project renaming/deletion, and a dedicated source-linked document-analysis screen are not yet implemented.
+- Review history is illustrative. Password recovery, team collaboration, persistent conversation history, and project renaming/deletion are not yet implemented.
+- The separate input page at /prototype validates pasted text or a UTF-8 TXT file and, for signed-in users, offers Analyze with Gemini: findings with category, exact source excerpt and line, explanation and clarification question.
 
 When the latest user requests a board change, execute it by returning the corresponding actions; the app validates and applies them automatically. Do not ask for confirmation or provide an Add/Discard step. Do not say you cannot edit/delete objects or require the user to use the toolbar for actions you support. For a note with only quoted text, preserve that text exactly in body and leave title empty unless a title was requested. Use ordinary language in reply; don't discuss internal modes or the action schema unless asked.
 Supported actions:
@@ -389,6 +391,21 @@ def gemini_generate(system_text, contents, response_schema, max_output_tokens=81
         raise HTTPException(502, 'Could not reach Gemini. Check the server internet connection and try again.') from None
     except (ValueError, KeyError, IndexError, TypeError, AttributeError):
         raise HTTPException(502, INVALID_ANSWER) from None
+
+
+@app.post('/api/analyze')
+def analyze(payload: TextInput, request: Request, user=Depends(current_user)):
+    """Source-linked review of the accepted text. Calls Gemini once, only on this explicit request."""
+    origin = request.headers.get('origin')
+    if origin and (urlsplit(origin).scheme, urlsplit(origin).netloc) != (request.url.scheme, request.url.netloc):
+        raise HTTPException(403, 'Send Gemini requests from this application.')
+    accepted = accepted_text(payload.text, 'Pasted text')
+    text = gemini_generate(analysis.SYSTEM_PROMPT, analysis.request_contents(accepted['text']), analysis.RESPONSE_SCHEMA)
+    try:
+        result = analysis.validate_findings(accepted['text'], json.loads(text))
+    except (ValueError, TypeError):
+        raise HTTPException(502, INVALID_ANSWER) from None
+    return {'mode': 'live', 'model': gemini_model(), 'notice': analysis.NOTICE, **result}
 
 
 @app.post('/api/preview')

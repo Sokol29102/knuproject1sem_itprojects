@@ -62,3 +62,10 @@ html[data-theme=dark] .user-message{background:#2b3e32;color:#d3e6c7}
 html[data-theme=dark] :is(.source-switch input:checked+span,.version,.brand-mark,.document-illustration,.empty-hint,.badge.success){background:var(--raised);color:var(--text);border-color:var(--border)}
 html[data-theme=dark] :is(.source-switch span,.step,.next-step p,.empty-hint,.tiny-label,.topbar a){color:var(--subtle)}
 html[data-theme=dark] input[type=file]::file-selector-button{background:var(--raised);color:var(--text);border-color:var(--border)}
+/* Source-linked analysis on /prototype */
+html[data-theme=dark] :is(.analysis-notice,.analysis-summary,.analyze-bar){background:var(--soft);border-color:var(--border);color:var(--text)}
+html[data-theme=dark] .finding blockquote{background:var(--raised);border-left-color:var(--border);color:var(--text)}
+html[data-theme=dark] :is(.finding p,.finding .question,.analysis-state,.unsupported){color:var(--text)}
+html[data-theme=dark] .category{background:var(--raised);color:var(--accent-text)}
+html[data-theme=dark] .ai-config.warn,html[data-theme=dark] .unsupported summary{color:#f0c27a}
+html[data-theme=dark] .ai-config a,html[data-theme=dark] #analysis-error a{color:inherit}

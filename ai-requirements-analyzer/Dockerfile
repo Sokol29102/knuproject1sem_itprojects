@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt \
     && useradd --create-home --uid 10001 appuser
-COPY main.py accounts.py planning_guidance.py ./
+COPY main.py accounts.py planning_guidance.py analysis.py ./
 COPY static ./static
 RUN mkdir -p /app/data && chown appuser:appuser /app/data
 USER appuser
