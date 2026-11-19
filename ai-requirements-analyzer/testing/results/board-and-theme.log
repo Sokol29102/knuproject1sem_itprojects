@@ -1,0 +1,238 @@
+TAP version 13
+# Subtest: box selection handles reverse drags and signed world coordinates
+ok 1 - box selection handles reverse drags and signed world coordinates
+  ---
+  duration_ms: 1.8239
+  type: 'test'
+  ...
+# Subtest: group movement preserves spacing and leaves pinned and unselected objects unchanged
+ok 2 - group movement preserves spacing and leaves pinned and unselected objects unchanged
+  ---
+  duration_ms: 0.1648
+  type: 'test'
+  ...
+# Subtest: pasting generates fresh IDs, retains group geometry, unpins copies and validates the whole result
+ok 3 - pasting generates fresh IDs, retains group geometry, unpins copies and validates the whole result
+  ---
+  duration_ms: 2.9129
+  type: 'test'
+  ...
+# Subtest: undo and redo cover edits, moves and deletion; a new edit clears redo
+ok 4 - undo and redo cover edits, moves and deletion; a new edit clears redo
+  ---
+  duration_ms: 0.1997
+  type: 'test'
+  ...
+# Subtest: no-op edits do not create history, and reset prevents undo into another project
+ok 5 - no-op edits do not create history, and reset prevents undo into another project
+  ---
+  duration_ms: 0.5187
+  type: 'test'
+  ...
+# Subtest: history limits old snapshots without dropping the newest undo
+ok 6 - history limits old snapshots without dropping the newest undo
+  ---
+  duration_ms: 0.1433
+  type: 'test'
+  ...
+# Subtest: copy/paste retains embedded images and drawing geometry without sharing mutable points
+ok 7 - copy/paste retains embedded images and drawing geometry without sharing mutable points
+  ---
+  duration_ms: 0.3887
+  type: 'test'
+  ...
+# Subtest: Gemini can add, move, resize, edit and delete objects in one atomic batch
+ok 8 - Gemini can add, move, resize, edit and delete objects in one atomic batch
+  ---
+  duration_ms: 5.4089
+  type: 'test'
+  ...
+# Subtest: a bad, stale, or pinned target rejects the whole batch without partial additions
+ok 9 - a bad, stale, or pinned target rejects the whole batch without partial additions
+  ---
+  duration_ms: 0.7239
+  type: 'test'
+  ...
+# Subtest: geometry is finite and bounded, protected fields and unknown operations are rejected
+ok 10 - geometry is finite and bounded, protected fields and unknown operations are rejected
+  ---
+  duration_ms: 0.3563
+  type: 'test'
+  ...
+# Subtest: resizing drawings scales points and preserves image data
+ok 11 - resizing drawings scales points and preserves image data
+  ---
+  duration_ms: 0.6165
+  type: 'test'
+  ...
+# Subtest: layout changes preserve the 100-object limit and reject coordinate overflow
+ok 12 - layout changes preserve the 100-object limit and reject coordinate overflow
+  ---
+  duration_ms: 0.9714
+  type: 'test'
+  ...
+# Subtest: positions allow travel in every direction without artificial edges
+ok 13 - positions allow travel in every direction without artificial edges
+  ---
+  duration_ms: 1.0378
+  type: 'test'
+  ...
+# Subtest: import rejects malformed, oversized and duplicate cards
+ok 14 - import rejects malformed, oversized and duplicate cards
+  ---
+  duration_ms: 0.4977
+  type: 'test'
+  ...
+# Subtest: import preserves text and signed distant coordinates
+ok 15 - import preserves text and signed distant coordinates
+  ---
+  duration_ms: 0.2358
+  type: 'test'
+  ...
+# Subtest: proposal leaves the board unchanged until applied
+ok 16 - proposal leaves the board unchanged until applied
+  ---
+  duration_ms: 3.5967
+  type: 'test'
+  ...
+# Subtest: pinned cards are not rewritten by the sample proposal
+ok 17 - pinned cards are not rewritten by the sample proposal
+  ---
+  duration_ms: 0.166
+  type: 'test'
+  ...
+# Subtest: search matches title and body literally and combines with type
+ok 18 - search matches title and body literally and combines with type
+  ---
+  duration_ms: 0.1237
+  type: 'test'
+  ...
+# Subtest: duplicate preserves content with a new ID and starts unpinned
+ok 19 - duplicate preserves content with a new ID and starts unpinned
+  ---
+  duration_ms: 0.121
+  type: 'test'
+  ...
+# Subtest: board storage round trip preserves edits, empty boards and manual pins
+ok 20 - board storage round trip preserves edits, empty boards and manual pins
+  ---
+  duration_ms: 0.1416
+  type: 'test'
+  ...
+# Subtest: invalid or unavailable storage reports failure without overwriting existing data
+ok 21 - invalid or unavailable storage reports failure without overwriting existing data
+  ---
+  duration_ms: 0.2461
+  type: 'test'
+  ...
+# Subtest: objects can move far beyond the former board in either direction
+ok 22 - objects can move far beyond the former board in either direction
+  ---
+  duration_ms: 0.1051
+  type: 'test'
+  ...
+# Subtest: visual objects survive board validation and duplicate without losing their content
+ok 23 - visual objects survive board validation and duplicate without losing their content
+  ---
+  duration_ms: 0.4666
+  type: 'test'
+  ...
+# Subtest: image imports reject remote URLs, SVG and oversized encoded data
+ok 24 - image imports reject remote URLs, SVG and oversized encoded data
+  ---
+  duration_ms: 0.1392
+  type: 'test'
+  ...
+# Subtest: drawings and shape properties must be finite, bounded and allowlisted
+ok 25 - drawings and shape properties must be finite, bounded and allowlisted
+  ---
+  duration_ms: 0.1673
+  type: 'test'
+  ...
+# Subtest: resizing a drawing scales its stroke without moving its origin
+ok 26 - resizing a drawing scales its stroke without moving its origin
+  ---
+  duration_ms: 0.1447
+  type: 'test'
+  ...
+# Subtest: a board cannot export more data than the import limit accepts
+ok 27 - a board cannot export more data than the import limit accepts
+  ---
+  duration_ms: 18.5344
+  type: 'test'
+  ...
+# Subtest: restoring a deleted image checks the complete board before changing it
+ok 28 - restoring a deleted image checks the complete board before changing it
+  ---
+  duration_ms: 35.429
+  type: 'test'
+  ...
+# Subtest: zoom keeps the board coordinate under the cursor fixed in both directions
+ok 29 - zoom keeps the board coordinate under the cursor fixed in both directions
+  ---
+  duration_ms: 0.2953
+  type: 'test'
+  ...
+# Subtest: zoom limits scale without clamping camera travel
+ok 30 - zoom limits scale without clamping camera travel
+  ---
+  duration_ms: 0.1408
+  type: 'test'
+  ...
+# Subtest: zoom-out at the old origin stays anchored using a negative camera position
+ok 31 - zoom-out at the old origin stays anchored using a negative camera position
+  ---
+  duration_ms: 0.1495
+  type: 'test'
+  ...
+# Subtest: screen-to-world mapping supports negative and distant camera positions
+ok 32 - screen-to-world mapping supports negative and distant camera positions
+  ---
+  duration_ms: 0.0781
+  type: 'test'
+  ...
+# Subtest: fit board leaves space for floating top controls and bottom toolbar
+ok 33 - fit board leaves space for floating top controls and bottom toolbar
+  ---
+  duration_ms: 0.1861
+  type: 'test'
+  ...
+# Subtest: export/import round trip retains every supported object type and protected pins
+ok 34 - export/import round trip retains every supported object type and protected pins
+  ---
+  duration_ms: 2.2483
+  type: 'test'
+  ...
+# Subtest: a complete AI batch undoes and redoes once without changing locked objects or image content
+ok 35 - a complete AI batch undoes and redoes once without changing locked objects or image content
+  ---
+  duration_ms: 3.0951
+  type: 'test'
+  ...
+# Subtest: pasting past the object limit rejects the entire group and preserves existing content
+ok 36 - pasting past the object limit rejects the entire group and preserves existing content
+  ---
+  duration_ms: 0.9007
+  type: 'test'
+  ...
+# Subtest: light is the default; choosing dark persists across pages and can return to light
+ok 37 - light is the default; choosing dark persists across pages and can return to light
+  ---
+  duration_ms: 4.4787
+  type: 'test'
+  ...
+# Subtest: blocked storage and unknown saved values keep theme switching usable
+ok 38 - blocked storage and unknown saved values keep theme switching usable
+  ---
+  duration_ms: 1.3892
+  type: 'test'
+  ...
+1..38
+# tests 38
+# suites 0
+# pass 38
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 177.5884

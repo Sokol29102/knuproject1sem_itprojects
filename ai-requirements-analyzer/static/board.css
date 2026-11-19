@@ -82,3 +82,6 @@ body.board-mode .board-card{pointer-events:auto}
 body.board-mode .board-canvas:not([data-tool=select]) .board-card{pointer-events:none}
 #board-viewport[data-tool=pan]{cursor:grab}#board-viewport[data-tool=pan]:active{cursor:grabbing}
 #board-viewport[data-tool=rectangle],#board-viewport[data-tool=ellipse],#board-viewport[data-tool=arrow],#board-viewport[data-tool=drawing]{cursor:crosshair}
+
+/* Selection feedback uses the existing board palette and toolbar. */
+.board-card.selected{outline:2px solid #386b56;outline-offset:4px}.board-card.selected .object-art{outline:none}.board-selection-box{position:absolute;pointer-events:none;border:1px solid #386b56;background:#386b561c;z-index:20;border-radius:3px}#board-viewport[data-tool=select]{user-select:none}#selection-status{color:#386b56;font-weight:600}.canvas-dock{max-width:calc(100% - 24px)}@media(max-width:1150px){.canvas-dock>button,.canvas-dock>.dock-menu>summary{min-width:32px;padding:4px}.canvas-dock>button>span{font-size:7px}}@media(max-width:650px){.canvas-dock{flex-wrap:wrap;justify-content:center}.board-corner{bottom:8px}#board-tool-hint{display:none}}

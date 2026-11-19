@@ -3,6 +3,9 @@ __pycache__
 *.pyc
 .git
 .env
+.env.*
+data
+*.sqlite3*
 tests
 docs
 *.png
